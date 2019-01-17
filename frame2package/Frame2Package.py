@@ -1,4 +1,5 @@
 import os
+import shutil
 import pandas as pd
 from ddf_utils import datapackage
 
@@ -56,7 +57,7 @@ class Frame2Package():
         dirpath = os.path.join(cwd, dirname)
         
         if os.path.exists(dirpath):
-            os.rmdir(dirpath)
+            shutil.rmtree(dirpath)
         
         os.mkdir(dirpath)
         
