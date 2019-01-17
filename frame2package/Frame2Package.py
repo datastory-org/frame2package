@@ -5,7 +5,28 @@ from ddf_utils import datapackage
 
 
 class Frame2Package():
+    """ Base class of frame2package.
+
+    Parameters
+    ----------
+    data : pandas.DataFrame
+        The data to packaged.
+    concepts : list
+        List of dictionaries each with keys concept and
+        concept_type for every concept in the dataset.
+    """
+
     def __init__(self, data, concepts):
+        if type(data) is not pd.DataFrame:
+            msg = (f'Expected data to be of type pandas.DataFrame'
+                   f', not {type(data)}')
+            raise TypeError(msg)
+
+        if type(concepts) is not list:
+            msg = (f'Expected concepts to be of type list'
+                   f', not {type(concepts)}')
+            raise TypeError(msg)
+
         data.columns = [x.lower() for x in data.columns]
         for concept in concepts:
             concept['concept'] = concept['concept'].lower()
@@ -53,6 +74,14 @@ class Frame2Package():
         return entities_lists
     
     def to_package(self, dirname):
+        """Save data to a DDF package.
+
+        Parameters
+        ----------
+        dirname : str
+            Name of the DDF directory to be created.
+        """
+
         cwd = os.getcwd()
         dirpath = os.path.join(cwd, dirname)
         
@@ -81,3 +110,7 @@ class Frame2Package():
         # Create datapackage.json
         meta = datapackage.create_datapackage(dirpath)
         datapackage.dump_json(os.path.join(dirpath, 'datapackage.json'), meta)
+
+    def __repr__(self):
+        return (f'<Frame2Package: {self.data.shape[0]} rows, '
+                f'{len(self.concepts)} concepts>')
