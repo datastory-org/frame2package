@@ -22,7 +22,7 @@ Thailand	1985	15+	Upper Secondary	0.07
 
 df = pd.read_csv(io.StringIO(data), sep='\t')
 
-# Specify the all concepts in the dataset
+# Specify all the concepts in the dataset
 # as per the DDF data format specification.
 
 concepts = [
