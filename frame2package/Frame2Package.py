@@ -105,7 +105,16 @@ class Frame2Package():
             
         # Create concepts file
         path = os.path.join(dirpath, 'ddf--concepts.csv')
-        pd.DataFrame(self.concepts).to_csv(path, index=False)
+        concepts = pd.DataFrame(self.concepts)
+        add_concepts = []
+        for c in concepts.columns:
+            if c not in ['concept', 'concept_type']:
+                add_concepts.append({
+                    'concept': c,
+                    'concept_type': 'string'
+                })
+        concepts = concepts.append(pd.DataFrame(add_concepts))
+        concepts.to_csv(path, index=False)
 
         # Create datapackage.json
         meta = datapackage.create_datapackage(dirpath)
