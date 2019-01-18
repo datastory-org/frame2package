@@ -33,6 +33,7 @@ class Frame2Package():
 
         self.data = data
         self.concepts = concepts
+        self.entities = self._build_entities()
 
     def _get_indicators(self):
         filt = lambda x: x['concept_type'] == 'measure'
@@ -54,7 +55,7 @@ class Frame2Package():
         """For each indicator, build a dataset."""
         datasets = []
         indicators = self._get_indicators()
-        dimensions = self._get_dimensions()
+        dimensions = list(self._get_dimensions())
         dimensions_string = self._build_dimensions_string()
         for i in indicators:
             fname = f'ddf--datapoints--{i["concept"]}--by--{dimensions_string}.csv'
@@ -65,13 +66,22 @@ class Frame2Package():
         return datasets
     
     def _build_entities(self):
-        entities_lists = []
+        entities_dict = {}
         entities = self._get_entities()
         for ent in entities:
             data = self.data[[ent['concept']]].drop_duplicates()
-            entities_lists.append(data)
+            entities_dict[ent['concept']] = data
         
-        return entities_lists
+        return entities_dict
+
+    def update_entity(self, name, data):
+        self.entities[name] = data
+        for col in data.columns:
+            if col != name:
+                self.concepts.append({
+                    'concept': col,
+                    'concept_type': 'string'
+                })
     
     def to_package(self, dirname):
         """Save data to a DDF package.
@@ -97,11 +107,10 @@ class Frame2Package():
             dataset['data'].to_csv(path, index=False)
             
         # Create entity files
-        entities = self._build_entities()
-        for ent in entities:
-            path = f'ddf--entities--{ent.columns[0]}.csv'
+        for name, data in self.entities.items():
+            path = f'ddf--entities--{name}.csv'
             path = os.path.join(dirpath, path)
-            ent.to_csv(path, index=False)
+            data.to_csv(path, index=False)
             
         # Create concepts file
         path = os.path.join(dirpath, 'ddf--concepts.csv')
