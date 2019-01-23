@@ -1,0 +1,108 @@
+"Antal arbetstimmar per vecka bland högutbildade utrikes födda efter Antal timmar, världsdel, kön, tabellinnehåll och år, oregelb"
+
+"Antal timmar","världsdel","kön","Svarsfördelning, procent 2009","Felmarginal, procent 2009","Svarsfördelning, antal 2009"
+"35 timmar eller mer","Norden","män",92,4,3029
+"35 timmar eller mer","Norden","kvinnor",74,7,3086
+"35 timmar eller mer","Norden","män och kvinnor",82,4,6118
+"35 timmar eller mer","EU15 utom Danmark och Finland","män",90,4,7268
+"35 timmar eller mer","EU15 utom Danmark och Finland","kvinnor",73,6,6590
+"35 timmar eller mer","EU15 utom Danmark och Finland","män och kvinnor",81,4,13853
+"35 timmar eller mer","Europa och Sovjetunionen","män",87,5,2244
+"35 timmar eller mer","Europa och Sovjetunionen","kvinnor",64,7,2792
+"35 timmar eller mer","Europa och Sovjetunionen","män och kvinnor",72,5,4997
+"35 timmar eller mer","Afrika","män",72,9,1188
+"35 timmar eller mer","Afrika","kvinnor",63,10,594
+"35 timmar eller mer","Afrika","män och kvinnor",69,7,1789
+"35 timmar eller mer","Nordamerika","män",82,6,1260
+"35 timmar eller mer","Nordamerika","kvinnor",65,8,914
+"35 timmar eller mer","Nordamerika","män och kvinnor",74,5,2178
+"35 timmar eller mer","Asien","män",75,8,4814
+"35 timmar eller mer","Asien","kvinnor",60,10,4134
+"35 timmar eller mer","Asien","män och kvinnor",68,6,9049
+"35 timmar eller mer","Sydamerika, Oceanien och okända","män",83,16,1123
+"35 timmar eller mer","Sydamerika, Oceanien och okända","kvinnor",54,19,835
+"35 timmar eller mer","Sydamerika, Oceanien och okända","män och kvinnor",68,13,1972
+"20 - 34 timmar","Norden","män",6,3,198
+"20 - 34 timmar","Norden","kvinnor",19,6,792
+"20 - 34 timmar","Norden","män och kvinnor",13,4,970
+"20 - 34 timmar","EU15 utom Danmark och Finland","män",6,4,485
+"20 - 34 timmar","EU15 utom Danmark och Finland","kvinnor",14,5,1264
+"20 - 34 timmar","EU15 utom Danmark och Finland","män och kvinnor",10,3,1710
+"20 - 34 timmar","Europa och Sovjetunionen","män",8,4,206
+"20 - 34 timmar","Europa och Sovjetunionen","kvinnor",18,6,785
+"20 - 34 timmar","Europa och Sovjetunionen","män och kvinnor",14,4,972
+"20 - 34 timmar","Afrika","män",10,6,165
+"20 - 34 timmar","Afrika","kvinnor",13,7,123
+"20 - 34 timmar","Afrika","män och kvinnor",11,4,285
+"20 - 34 timmar","Nordamerika","män",7,4,108
+"20 - 34 timmar","Nordamerika","kvinnor",21,7,295
+"20 - 34 timmar","Nordamerika","män och kvinnor",14,4,412
+"20 - 34 timmar","Asien","män",7,4,449
+"20 - 34 timmar","Asien","kvinnor",19,8,1309
+"20 - 34 timmar","Asien","män och kvinnor",13,5,1730
+"20 - 34 timmar","Sydamerika, Oceanien och okända","män",..,..,..
+"20 - 34 timmar","Sydamerika, Oceanien och okända","kvinnor",27,17,418
+"20 - 34 timmar","Sydamerika, Oceanien och okända","män och kvinnor",21,12,609
+"15 - 19 timmar","Norden","män",0,0,..
+"15 - 19 timmar","Norden","kvinnor",..,..,..
+"15 - 19 timmar","Norden","män och kvinnor",..,..,..
+"15 - 19 timmar","EU15 utom Danmark och Finland","män",2,2,162
+"15 - 19 timmar","EU15 utom Danmark och Finland","kvinnor",3,2,271
+"15 - 19 timmar","EU15 utom Danmark och Finland","män och kvinnor",2,2,342
+"15 - 19 timmar","Europa och Sovjetunionen","män",2,2,52
+"15 - 19 timmar","Europa och Sovjetunionen","kvinnor",13,6,567
+"15 - 19 timmar","Europa och Sovjetunionen","män och kvinnor",9,4,625
+"15 - 19 timmar","Afrika","män",12,7,198
+"15 - 19 timmar","Afrika","kvinnor",7,4,66
+"15 - 19 timmar","Afrika","män och kvinnor",10,5,259
+"15 - 19 timmar","Nordamerika","män",4,3,61
+"15 - 19 timmar","Nordamerika","kvinnor",8,5,112
+"15 - 19 timmar","Nordamerika","män och kvinnor",6,3,177
+"15 - 19 timmar","Asien","män",5,4,321
+"15 - 19 timmar","Asien","kvinnor",10,7,689
+"15 - 19 timmar","Asien","män och kvinnor",8,4,1065
+"15 - 19 timmar","Sydamerika, Oceanien och okända","män",0,0,..
+"15 - 19 timmar","Sydamerika, Oceanien och okända","kvinnor",15,14,232
+"15 - 19 timmar","Sydamerika, Oceanien och okända","män och kvinnor",8,8,232
+"mindre än 5 timmar","Norden","män",0,0,..
+"mindre än 5 timmar","Norden","kvinnor",..,..,..
+"mindre än 5 timmar","Norden","män och kvinnor",..,..,..
+"mindre än 5 timmar","EU15 utom Danmark och Finland","män",2,2,162
+"mindre än 5 timmar","EU15 utom Danmark och Finland","kvinnor",3,2,271
+"mindre än 5 timmar","EU15 utom Danmark och Finland","män och kvinnor",2,2,342
+"mindre än 5 timmar","Europa och Sovjetunionen","män",..,..,..
+"mindre än 5 timmar","Europa och Sovjetunionen","kvinnor",..,..,..
+"mindre än 5 timmar","Europa och Sovjetunionen","män och kvinnor",1,1,69
+"mindre än 5 timmar","Afrika","män",5,4,83
+"mindre än 5 timmar","Afrika","kvinnor",6,5,57
+"mindre än 5 timmar","Afrika","män och kvinnor",5,3,130
+"mindre än 5 timmar","Nordamerika","män",5,3,77
+"mindre än 5 timmar","Nordamerika","kvinnor",2,2,28
+"mindre än 5 timmar","Nordamerika","män och kvinnor",..,..,..
+"mindre än 5 timmar","Asien","män",7,5,449
+"mindre än 5 timmar","Asien","kvinnor",3,3,207
+"mindre än 5 timmar","Asien","män och kvinnor",5,3,665
+"mindre än 5 timmar","Sydamerika, Oceanien och okända","män",0,0,..
+"mindre än 5 timmar","Sydamerika, Oceanien och okända","kvinnor",0,0,..
+"mindre än 5 timmar","Sydamerika, Oceanien och okända","män och kvinnor",0,0,..
+"uppgift saknas","Norden","män",1,2,33
+"uppgift saknas","Norden","kvinnor",2,2,83
+"uppgift saknas","Norden","män och kvinnor",2,1,149
+"uppgift saknas","EU15 utom Danmark och Finland","män",1,1,81
+"uppgift saknas","EU15 utom Danmark och Finland","kvinnor",4,3,361
+"uppgift saknas","EU15 utom Danmark och Finland","män och kvinnor",2,2,342
+"uppgift saknas","Europa och Sovjetunionen","män",2,2,52
+"uppgift saknas","Europa och Sovjetunionen","kvinnor",4,3,174
+"uppgift saknas","Europa och Sovjetunionen","män och kvinnor",3,2,208
+"uppgift saknas","Afrika","män",2,2,33
+"uppgift saknas","Afrika","kvinnor",11,7,104
+"uppgift saknas","Afrika","män och kvinnor",5,3,130
+"uppgift saknas","Nordamerika","män",5,4,77
+"uppgift saknas","Nordamerika","kvinnor",3,3,42
+"uppgift saknas","Nordamerika","män och kvinnor",4,2,118
+"uppgift saknas","Asien","män",6,5,385
+"uppgift saknas","Asien","kvinnor",9,5,620
+"uppgift saknas","Asien","män och kvinnor",8,3,1065
+"uppgift saknas","Sydamerika, Oceanien och okända","män",3,5,41
+"uppgift saknas","Sydamerika, Oceanien och okända","kvinnor",3,6,46
+"uppgift saknas","Sydamerika, Oceanien och okända","män och kvinnor",3,4,87

@@ -1,0 +1,306 @@
+{
+    "name": "ddf",
+    "language": {
+        "id": "en"
+    },
+    "created": "2019-01-23T17:30:08.675652+00:00",
+    "resources": [
+        {
+            "path": "ddf--concepts.csv",
+            "name": "ddf--concepts",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "concept"
+                    },
+                    {
+                        "name": "concept_type"
+                    }
+                ],
+                "primaryKey": "concept"
+            }
+        },
+        {
+            "path": "ddf--datapoints--error_margin--by--region--no_hours.csv",
+            "name": "ddf--datapoints--error_margin--by--region--no_hours",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "region"
+                    },
+                    {
+                        "name": "no_hours"
+                    },
+                    {
+                        "name": "error_margin"
+                    }
+                ],
+                "primaryKey": [
+                    "region",
+                    "no_hours"
+                ]
+            }
+        },
+        {
+            "path": "ddf--datapoints--error_margin--by--region--sex--no_hours.csv",
+            "name": "ddf--datapoints--error_margin--by--region--sex--no_hours",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "region"
+                    },
+                    {
+                        "name": "sex"
+                    },
+                    {
+                        "name": "no_hours"
+                    },
+                    {
+                        "name": "error_margin"
+                    }
+                ],
+                "primaryKey": [
+                    "region",
+                    "sex",
+                    "no_hours"
+                ]
+            }
+        },
+        {
+            "path": "ddf--datapoints--people--by--region--no_hours.csv",
+            "name": "ddf--datapoints--people--by--region--no_hours",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "region"
+                    },
+                    {
+                        "name": "no_hours"
+                    },
+                    {
+                        "name": "people"
+                    }
+                ],
+                "primaryKey": [
+                    "region",
+                    "no_hours"
+                ]
+            }
+        },
+        {
+            "path": "ddf--datapoints--people--by--region--sex--no_hours.csv",
+            "name": "ddf--datapoints--people--by--region--sex--no_hours",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "region"
+                    },
+                    {
+                        "name": "sex"
+                    },
+                    {
+                        "name": "no_hours"
+                    },
+                    {
+                        "name": "people"
+                    }
+                ],
+                "primaryKey": [
+                    "region",
+                    "sex",
+                    "no_hours"
+                ]
+            }
+        },
+        {
+            "path": "ddf--datapoints--percent--by--region--no_hours.csv",
+            "name": "ddf--datapoints--percent--by--region--no_hours",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "region"
+                    },
+                    {
+                        "name": "no_hours"
+                    },
+                    {
+                        "name": "percent"
+                    }
+                ],
+                "primaryKey": [
+                    "region",
+                    "no_hours"
+                ]
+            }
+        },
+        {
+            "path": "ddf--datapoints--percent--by--region--sex--no_hours.csv",
+            "name": "ddf--datapoints--percent--by--region--sex--no_hours",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "region"
+                    },
+                    {
+                        "name": "sex"
+                    },
+                    {
+                        "name": "no_hours"
+                    },
+                    {
+                        "name": "percent"
+                    }
+                ],
+                "primaryKey": [
+                    "region",
+                    "sex",
+                    "no_hours"
+                ]
+            }
+        },
+        {
+            "path": "ddf--entities--no_hours.csv",
+            "name": "ddf--entities--no_hours",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "no_hours"
+                    }
+                ],
+                "primaryKey": "no_hours"
+            }
+        },
+        {
+            "path": "ddf--entities--region.csv",
+            "name": "ddf--entities--region",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "region"
+                    }
+                ],
+                "primaryKey": "region"
+            }
+        },
+        {
+            "path": "ddf--entities--sex.csv",
+            "name": "ddf--entities--sex",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "sex"
+                    }
+                ],
+                "primaryKey": "sex"
+            }
+        }
+    ],
+    "ddfSchema": {
+        "concepts": [
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "concept_type",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            }
+        ],
+        "entities": [
+            {
+                "primaryKey": [
+                    "no_hours"
+                ],
+                "value": null,
+                "resources": [
+                    "ddf--entities--no_hours"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "region"
+                ],
+                "value": null,
+                "resources": [
+                    "ddf--entities--region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "sex"
+                ],
+                "value": null,
+                "resources": [
+                    "ddf--entities--sex"
+                ]
+            }
+        ],
+        "datapoints": [
+            {
+                "primaryKey": [
+                    "no_hours",
+                    "region"
+                ],
+                "value": "error_margin",
+                "resources": [
+                    "ddf--datapoints--error_margin--by--region--no_hours"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "no_hours",
+                    "region",
+                    "sex"
+                ],
+                "value": "error_margin",
+                "resources": [
+                    "ddf--datapoints--error_margin--by--region--sex--no_hours"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "no_hours",
+                    "region"
+                ],
+                "value": "people",
+                "resources": [
+                    "ddf--datapoints--people--by--region--no_hours"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "no_hours",
+                    "region",
+                    "sex"
+                ],
+                "value": "people",
+                "resources": [
+                    "ddf--datapoints--people--by--region--sex--no_hours"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "no_hours",
+                    "region"
+                ],
+                "value": "percent",
+                "resources": [
+                    "ddf--datapoints--percent--by--region--no_hours"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "no_hours",
+                    "region",
+                    "sex"
+                ],
+                "value": "percent",
+                "resources": [
+                    "ddf--datapoints--percent--by--region--sex--no_hours"
+                ]
+            }
+        ],
+        "synonyms": []
+    }
+}

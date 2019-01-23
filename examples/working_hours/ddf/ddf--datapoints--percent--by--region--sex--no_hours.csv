@@ -1,0 +1,106 @@
+region,sex,no_hours,percent
+Norden,män,35 timmar eller mer,92
+Norden,kvinnor,35 timmar eller mer,74
+Norden,män och kvinnor,35 timmar eller mer,82
+EU15 utom Danmark och Finland,män,35 timmar eller mer,90
+EU15 utom Danmark och Finland,kvinnor,35 timmar eller mer,73
+EU15 utom Danmark och Finland,män och kvinnor,35 timmar eller mer,81
+Europa och Sovjetunionen,män,35 timmar eller mer,87
+Europa och Sovjetunionen,kvinnor,35 timmar eller mer,64
+Europa och Sovjetunionen,män och kvinnor,35 timmar eller mer,72
+Afrika,män,35 timmar eller mer,72
+Afrika,kvinnor,35 timmar eller mer,63
+Afrika,män och kvinnor,35 timmar eller mer,69
+Nordamerika,män,35 timmar eller mer,82
+Nordamerika,kvinnor,35 timmar eller mer,65
+Nordamerika,män och kvinnor,35 timmar eller mer,74
+Asien,män,35 timmar eller mer,75
+Asien,kvinnor,35 timmar eller mer,60
+Asien,män och kvinnor,35 timmar eller mer,68
+"Sydamerika, Oceanien och okända",män,35 timmar eller mer,83
+"Sydamerika, Oceanien och okända",kvinnor,35 timmar eller mer,54
+"Sydamerika, Oceanien och okända",män och kvinnor,35 timmar eller mer,68
+Norden,män,20 - 34 timmar,6
+Norden,kvinnor,20 - 34 timmar,19
+Norden,män och kvinnor,20 - 34 timmar,13
+EU15 utom Danmark och Finland,män,20 - 34 timmar,6
+EU15 utom Danmark och Finland,kvinnor,20 - 34 timmar,14
+EU15 utom Danmark och Finland,män och kvinnor,20 - 34 timmar,10
+Europa och Sovjetunionen,män,20 - 34 timmar,8
+Europa och Sovjetunionen,kvinnor,20 - 34 timmar,18
+Europa och Sovjetunionen,män och kvinnor,20 - 34 timmar,14
+Afrika,män,20 - 34 timmar,10
+Afrika,kvinnor,20 - 34 timmar,13
+Afrika,män och kvinnor,20 - 34 timmar,11
+Nordamerika,män,20 - 34 timmar,7
+Nordamerika,kvinnor,20 - 34 timmar,21
+Nordamerika,män och kvinnor,20 - 34 timmar,14
+Asien,män,20 - 34 timmar,7
+Asien,kvinnor,20 - 34 timmar,19
+Asien,män och kvinnor,20 - 34 timmar,13
+"Sydamerika, Oceanien och okända",män,20 - 34 timmar,..
+"Sydamerika, Oceanien och okända",kvinnor,20 - 34 timmar,27
+"Sydamerika, Oceanien och okända",män och kvinnor,20 - 34 timmar,21
+Norden,män,15 - 19 timmar,0
+Norden,kvinnor,15 - 19 timmar,..
+Norden,män och kvinnor,15 - 19 timmar,..
+EU15 utom Danmark och Finland,män,15 - 19 timmar,2
+EU15 utom Danmark och Finland,kvinnor,15 - 19 timmar,3
+EU15 utom Danmark och Finland,män och kvinnor,15 - 19 timmar,2
+Europa och Sovjetunionen,män,15 - 19 timmar,2
+Europa och Sovjetunionen,kvinnor,15 - 19 timmar,13
+Europa och Sovjetunionen,män och kvinnor,15 - 19 timmar,9
+Afrika,män,15 - 19 timmar,12
+Afrika,kvinnor,15 - 19 timmar,7
+Afrika,män och kvinnor,15 - 19 timmar,10
+Nordamerika,män,15 - 19 timmar,4
+Nordamerika,kvinnor,15 - 19 timmar,8
+Nordamerika,män och kvinnor,15 - 19 timmar,6
+Asien,män,15 - 19 timmar,5
+Asien,kvinnor,15 - 19 timmar,10
+Asien,män och kvinnor,15 - 19 timmar,8
+"Sydamerika, Oceanien och okända",män,15 - 19 timmar,0
+"Sydamerika, Oceanien och okända",kvinnor,15 - 19 timmar,15
+"Sydamerika, Oceanien och okända",män och kvinnor,15 - 19 timmar,8
+Norden,män,mindre än 5 timmar,0
+Norden,kvinnor,mindre än 5 timmar,..
+Norden,män och kvinnor,mindre än 5 timmar,..
+EU15 utom Danmark och Finland,män,mindre än 5 timmar,2
+EU15 utom Danmark och Finland,kvinnor,mindre än 5 timmar,3
+EU15 utom Danmark och Finland,män och kvinnor,mindre än 5 timmar,2
+Europa och Sovjetunionen,män,mindre än 5 timmar,..
+Europa och Sovjetunionen,kvinnor,mindre än 5 timmar,..
+Europa och Sovjetunionen,män och kvinnor,mindre än 5 timmar,1
+Afrika,män,mindre än 5 timmar,5
+Afrika,kvinnor,mindre än 5 timmar,6
+Afrika,män och kvinnor,mindre än 5 timmar,5
+Nordamerika,män,mindre än 5 timmar,5
+Nordamerika,kvinnor,mindre än 5 timmar,2
+Nordamerika,män och kvinnor,mindre än 5 timmar,..
+Asien,män,mindre än 5 timmar,7
+Asien,kvinnor,mindre än 5 timmar,3
+Asien,män och kvinnor,mindre än 5 timmar,5
+"Sydamerika, Oceanien och okända",män,mindre än 5 timmar,0
+"Sydamerika, Oceanien och okända",kvinnor,mindre än 5 timmar,0
+"Sydamerika, Oceanien och okända",män och kvinnor,mindre än 5 timmar,0
+Norden,män,uppgift saknas,1
+Norden,kvinnor,uppgift saknas,2
+Norden,män och kvinnor,uppgift saknas,2
+EU15 utom Danmark och Finland,män,uppgift saknas,1
+EU15 utom Danmark och Finland,kvinnor,uppgift saknas,4
+EU15 utom Danmark och Finland,män och kvinnor,uppgift saknas,2
+Europa och Sovjetunionen,män,uppgift saknas,2
+Europa och Sovjetunionen,kvinnor,uppgift saknas,4
+Europa och Sovjetunionen,män och kvinnor,uppgift saknas,3
+Afrika,män,uppgift saknas,2
+Afrika,kvinnor,uppgift saknas,11
+Afrika,män och kvinnor,uppgift saknas,5
+Nordamerika,män,uppgift saknas,5
+Nordamerika,kvinnor,uppgift saknas,3
+Nordamerika,män och kvinnor,uppgift saknas,4
+Asien,män,uppgift saknas,6
+Asien,kvinnor,uppgift saknas,9
+Asien,män och kvinnor,uppgift saknas,8
+"Sydamerika, Oceanien och okända",män,uppgift saknas,3
+"Sydamerika, Oceanien och okända",kvinnor,uppgift saknas,3
+"Sydamerika, Oceanien och okända",män och kvinnor,uppgift saknas,3
