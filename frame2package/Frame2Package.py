@@ -16,7 +16,7 @@ class Frame2Package():
         concept_type for every concept in the dataset.
     """
 
-    def __init__(self, data, concepts):
+    def __init__(self, data, concepts, totals={}):
         if type(data) is not pd.DataFrame:
             msg = (f'Expected data to be of type pandas.DataFrame'
                    f', not {type(data)}')
@@ -33,28 +33,30 @@ class Frame2Package():
 
         self.data = data
         self.concepts = concepts
+        self.totals = totals
         self.entities = self._build_entities()
 
     def _get_indicators(self):
         filt = lambda x: x['concept_type'] == 'measure'
         return filter(filt, self.concepts)
     
-    def _get_dimensions(self):
-        filt = lambda x: x['concept_type'] != 'measure'
+    def _get_dimensions(self, excludes=[]):
+        filt = lambda x: x['concept_type'] != 'measure' and \
+                         x['concept'] not in excludes
         return filter(filt, self.concepts)
     
     def _get_entities(self):
         filt = lambda x: x['concept_type'] == 'entity_domain'
         return filter(filt, self.concepts)
     
-    def _build_dimensions_string(self):
-        s = [x['concept'] for x in self._get_dimensions()]
+    def _build_dimensions_string(self, excludes=[]):
+        s = [x['concept'] for x in self._get_dimensions(excludes)]
         return '--'.join(s)
     
     def _build_datasets(self):
         """For each indicator, build a dataset."""
         datasets = []
-        indicators = self._get_indicators()
+        indicators = list(self._get_indicators())
         dimensions = list(self._get_dimensions())
         dimensions_string = self._build_dimensions_string()
         for i in indicators:
@@ -62,6 +64,17 @@ class Frame2Package():
             cols = [x['concept'] for x in dimensions] + [i['concept']]
             dataset = self.data[cols]
             datasets.append({'data': dataset, 'fname': fname})
+
+        # Append datasets without totals
+        # TODO: Explain this better...
+        for k, v in self.totals.items():
+            dimensions = list(self._get_dimensions(excludes=[k]))
+            dimensions_string = self._build_dimensions_string(excludes=[k])
+            for i in indicators:
+                fname = f'ddf--datapoints--{i["concept"]}--by--{dimensions_string}.csv'
+                cols = [x['concept'] for x in dimensions] + [i['concept']]
+                dataset = self.data[cols]
+                datasets.append({'data': dataset, 'fname': fname})
         
         return datasets
     
