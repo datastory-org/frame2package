@@ -1,2 +1,5 @@
 frame2package.egg-info/
 __pycache__
+.ipynb_checkpoints
+Pipfile
+Pipfile.lock
