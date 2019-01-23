@@ -1,0 +1,172 @@
+{
+    "name": "ddf",
+    "language": {
+        "id": "en"
+    },
+    "created": "2019-01-23T16:37:27.094593+00:00",
+    "resources": [
+        {
+            "path": "ddf--concepts.csv",
+            "name": "ddf--concepts",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "concept"
+                    },
+                    {
+                        "name": "concept_type"
+                    }
+                ],
+                "primaryKey": "concept"
+            }
+        },
+        {
+            "path": "ddf--datapoints--people--by--region--age--edu_level--sex--year.csv",
+            "name": "ddf--datapoints--people--by--region--age--edu_level--sex--year",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "region"
+                    },
+                    {
+                        "name": "age"
+                    },
+                    {
+                        "name": "edu_level"
+                    },
+                    {
+                        "name": "sex"
+                    },
+                    {
+                        "name": "year"
+                    },
+                    {
+                        "name": "people"
+                    }
+                ],
+                "primaryKey": [
+                    "region",
+                    "age",
+                    "edu_level",
+                    "sex",
+                    "year"
+                ]
+            }
+        },
+        {
+            "path": "ddf--entities--age.csv",
+            "name": "ddf--entities--age",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "age"
+                    }
+                ],
+                "primaryKey": "age"
+            }
+        },
+        {
+            "path": "ddf--entities--edu_level.csv",
+            "name": "ddf--entities--edu_level",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "edu_level"
+                    }
+                ],
+                "primaryKey": "edu_level"
+            }
+        },
+        {
+            "path": "ddf--entities--region.csv",
+            "name": "ddf--entities--region",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "region"
+                    }
+                ],
+                "primaryKey": "region"
+            }
+        },
+        {
+            "path": "ddf--entities--sex.csv",
+            "name": "ddf--entities--sex",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "sex"
+                    }
+                ],
+                "primaryKey": "sex"
+            }
+        }
+    ],
+    "ddfSchema": {
+        "concepts": [
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "concept_type",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            }
+        ],
+        "entities": [
+            {
+                "primaryKey": [
+                    "age"
+                ],
+                "value": null,
+                "resources": [
+                    "ddf--entities--age"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "edu_level"
+                ],
+                "value": null,
+                "resources": [
+                    "ddf--entities--edu_level"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "region"
+                ],
+                "value": null,
+                "resources": [
+                    "ddf--entities--region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "sex"
+                ],
+                "value": null,
+                "resources": [
+                    "ddf--entities--sex"
+                ]
+            }
+        ],
+        "datapoints": [
+            {
+                "primaryKey": [
+                    "age",
+                    "edu_level",
+                    "region",
+                    "sex",
+                    "year"
+                ],
+                "value": "people",
+                "resources": [
+                    "ddf--datapoints--people--by--region--age--edu_level--sex--year"
+                ]
+            }
+        ],
+        "synonyms": []
+    }
+}

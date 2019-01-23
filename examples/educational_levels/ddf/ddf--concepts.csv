@@ -1,0 +1,7 @@
+concept,concept_type
+region,entity_domain
+age,entity_domain
+edu_level,entity_domain
+sex,entity_domain
+year,time
+people,measure
