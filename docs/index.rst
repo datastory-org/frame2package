@@ -6,19 +6,19 @@
 Frame2Package
 =============
 
-A helper library for converting Pandas dataframes to DDF packages.
+Frame2Package is a helper library for converting Pandas dataframes to `DDF packages <https://open-numbers.github.io/ddf.html>`_. 
+
+.. code-block:: python
+
+	f2p = Frame2Package(data=df, concepts=concepts)
+	f2p.to_package('my-ddf-folder')
+
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   quickstart
+   usage
    api
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
