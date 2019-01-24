@@ -14,6 +14,10 @@ class Frame2Package():
     concepts : list
         List of dictionaries each with keys concept and
         concept_type for every concept in the dataset.
+    totals : dict
+        Mapping from variable name to name of value that
+        refers to a total, e.g. "all genders" in a gender
+        column.
     """
 
     def __init__(self, data, concepts, totals={}):
