@@ -45,8 +45,8 @@ class Frame2Package():
         return filter(filt, self.concepts)
     
     def _get_dimensions(self, excludes=[]):
-        filt = lambda x: x['concept_type'] != 'measure' and \
-                         x['concept'] not in excludes
+        filt = lambda x: x['concept_type'] not in ['measure', 'string'] \
+                         and x['concept'] not in excludes
         return filter(filt, self.concepts)
     
     def _get_entities(self):
@@ -92,6 +92,15 @@ class Frame2Package():
         return entities_dict
 
     def update_entity(self, name, data):
+        """ Add extra information about an entity.
+
+        Parameters
+        ----------
+        name : string
+            The name of the entity.
+        data : pandas.DataFrame
+            All data about the given entity.
+        """
         self.entities[name] = data
         for col in data.columns:
             if col != name:

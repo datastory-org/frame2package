@@ -47,3 +47,23 @@ Some of your variables may have "total" entries. For instance, a `sex` column ma
 
 	f2p = Frame2Package(df, concepts, totals={'sex': 'both'})
 
+Entities
+--------
+
+For each concept of type `entity_domain`, frame2package will generate an entity file `ddf--entities--<entity-name>.csv` listing all the unique values for that entity.
+
+If you want to add additional information about the values, such as a description column, create a dataframe with all the unique values for that entity and any additional columns and use `.update_entity` to add the information to the package.
+
+
+.. code-block:: python
+
+	# Assuming entity with name "sex" and values "M", "F", "B"
+	
+	# First copy the entity data
+	sex = f2p.entities['sex'].copy()
+
+	# Add a description column
+	sex['description'] = ['Male', 'Female', 'Both']
+
+	# Update the entity in the package
+	f2p.update_entity(name='sex', data=sex)
