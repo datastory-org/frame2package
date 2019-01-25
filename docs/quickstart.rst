@@ -18,15 +18,15 @@ To install frame2package, simply run this command (using pipenv or pip)::
 
 	# Load some sample data
 
-	data = """area	year	age	education	distribution
-	Bahamas	2000	15+	Total	1.0
-	Fiji	1970	80+	Total	1.0
-	Gabon	2025	20--64	Under 15	0.0
-	Brunei Darussalam	2045	All	Total	1.0
-	Thailand	1985	15+	Upper Secondary	0.07
+	data = """area,year,age,education,distribution
+	Bahamas,2000,15+,Total,1.0
+	Fiji,1970,80+,Total,1.0
+	Gabon,2025,20--64,Under 15,0.0
+	Brunei Darussalam,2045,All,Total,1.0
+	Thailand,1985,15+,Upper Secondary,0.07
 	"""
 
-	df = pd.read_csv(io.StringIO(data), sep='\t')
+	df = pd.read_csv(io.StringIO(data))
 
 	# Specify all the concepts in the dataset
 	# as per the DDF data format specification.
