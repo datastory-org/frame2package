@@ -61,8 +61,8 @@ class Frame2Package():
         filt = lambda x: x['concept_type'] == 'entity_domain'
         return filter(filt, concepts)
     
-    def _build_dimensions_string(self, excludes=[]):
-        s = [x['concept'] for x in self._get_dimensions(excludes)]
+    def _build_dimensions_string(self, concepts, excludes=[]):
+        s = [x['concept'] for x in self._get_dimensions(concepts, excludes)]
         return '--'.join(s)
     
     def _build_datasets(self):
