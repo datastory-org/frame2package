@@ -20,7 +20,11 @@ class Frame2Package():
         column.
     """
 
-    def __init__(self, data, concepts, totals={}):
+    def __init__(self):
+        self.data = []
+        self.entities = {}
+
+    def add_data(self, data, concepts, totals={}):
         if type(data) is not pd.DataFrame:
             msg = (f'Expected data to be of type pandas.DataFrame'
                    f', not {type(data)}')
@@ -31,27 +35,31 @@ class Frame2Package():
                    f', not {type(concepts)}')
             raise TypeError(msg)
 
-        data.columns = [x.lower() for x in data.columns]
         for concept in concepts:
             concept['concept'] = concept['concept'].lower()
 
-        self.data = data
-        self.concepts = concepts
-        self.totals = totals
+        data.columns = [x.lower() for x in data.columns]
+        
+        self.data.append({
+            'data': data,
+            'concepts': concepts,
+            'totals': totals
+        })
+
         self.entities = self._build_entities()
 
-    def _get_indicators(self):
+    def _get_indicators(self, concepts):
         filt = lambda x: x['concept_type'] == 'measure'
-        return filter(filt, self.concepts)
+        return filter(filt, concepts)
     
-    def _get_dimensions(self, excludes=[]):
+    def _get_dimensions(self, concepts, excludes=[]):
         filt = lambda x: x['concept_type'] not in ['measure', 'string'] \
                          and x['concept'] not in excludes
-        return filter(filt, self.concepts)
+        return filter(filt, concepts)
     
-    def _get_entities(self):
+    def _get_entities(self, concepts):
         filt = lambda x: x['concept_type'] == 'entity_domain'
-        return filter(filt, self.concepts)
+        return filter(filt, concepts)
     
     def _build_dimensions_string(self, excludes=[]):
         s = [x['concept'] for x in self._get_dimensions(excludes)]
@@ -59,36 +67,45 @@ class Frame2Package():
     
     def _build_datasets(self):
         """For each indicator, build a dataset."""
-        datasets = []
-        indicators = list(self._get_indicators())
-        dimensions = list(self._get_dimensions())
-        dimensions_string = self._build_dimensions_string()
-        for i in indicators:
-            fname = f'ddf--datapoints--{i["concept"]}--by--{dimensions_string}.csv'
-            cols = [x['concept'] for x in dimensions] + [i['concept']]
-            dataset = self.data[cols]
-            datasets.append({'data': dataset, 'fname': fname})
+        files = []
 
-        # Append datasets without totals
-        # TODO: Explain this better...
-        for k, v in self.totals.items():
-            dimensions = list(self._get_dimensions(excludes=[k]))
-            dimensions_string = self._build_dimensions_string(excludes=[k])
+        for dataset in self.data:
+            concepts = dataset['concepts']
+            indicators = list(self._get_indicators(concepts))
+            dimensions = list(self._get_dimensions(concepts))
+            dimensions_string = self._build_dimensions_string(concepts)
+
             for i in indicators:
                 fname = f'ddf--datapoints--{i["concept"]}--by--{dimensions_string}.csv'
                 cols = [x['concept'] for x in dimensions] + [i['concept']]
-                dataset = self.data[cols]
-                datasets.append({'data': dataset, 'fname': fname})
+                file = dataset['data'][cols]
+                files.append({'data': file, 'fname': fname})
+
+            if not 'totals' in dataset:
+                continue
+            for k, v in dataset['totals'].items():
+                dimensions = list(self._get_dimensions(concepts, excludes=[k]))
+                dimensions_string = self._build_dimensions_string(concepts, excludes=[k])
+                for i in indicators:
+                    fname = f'ddf--datapoints--{i["concept"]}--by--{dimensions_string}.csv'
+                    cols = [x['concept'] for x in dimensions] + [i['concept']]
+                    file = dataset['data'][cols]
+                    files.append({'data': file, 'fname': fname})
         
-        return datasets
+        return files
     
     def _build_entities(self):
         entities_dict = {}
-        entities = self._get_entities()
-        for ent in entities:
-            data = self.data[[ent['concept']]].drop_duplicates()
-            entities_dict[ent['concept']] = data
-        
+        for dataset in self.data:
+            entities = self._get_entities(dataset['concepts'])
+            for ent in entities:
+                data = dataset['data'][[ent['concept']]].drop_duplicates()
+                if ent['concept'] in self.entities:
+                    entities_dict[ent['concept']] = \
+                        self.entities[ent['concept']].append(data).drop_duplicates()
+                else:
+                    entities_dict[ent['concept']] = data
+
         return entities_dict
 
     def update_entity(self, name, data):
@@ -140,7 +157,10 @@ class Frame2Package():
             
         # Create concepts file
         path = os.path.join(dirpath, 'ddf--concepts.csv')
-        concepts = pd.DataFrame(self.concepts)
+        concepts = []
+        for data in self.data:
+            concepts = concepts + data['concepts']
+        concepts = pd.DataFrame(concepts)
         add_concepts = []
         for c in concepts.columns:
             if c not in ['concept', 'concept_type']:
@@ -149,12 +169,13 @@ class Frame2Package():
                     'concept_type': 'string'
                 })
         concepts = concepts.append(pd.DataFrame(add_concepts))
+        concepts = concepts.drop_duplicates(subset=['concept'])
         concepts.to_csv(path, index=False)
 
         # Create datapackage.json
         meta = datapackage.create_datapackage(dirpath)
         datapackage.dump_json(os.path.join(dirpath, 'datapackage.json'), meta)
 
-    def __repr__(self):
-        return (f'<Frame2Package: {self.data.shape[0]} rows, '
-                f'{len(self.concepts)} concepts>')
+    # def __repr__(self):
+    #     return (f'<Frame2Package: {self.data.shape[0]} rows, '
+    #             f'{len(self.concepts)} concepts>')
