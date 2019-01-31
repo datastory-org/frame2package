@@ -55,7 +55,10 @@ To install frame2package, simply run this command (using pipenv or pip)::
 	]
 
 	# Initialize a Frame2Package object
-	f2p = Frame2Package(data=df, concepts=concepts)
+	f2p = Frame2Package()
+
+	# Add the data
+	f2p.add_data(data=df, concepts=concepts)
 
 	# Save the package
 	f2p.to_package('sample-dataset')

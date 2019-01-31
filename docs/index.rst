@@ -10,8 +10,9 @@ Frame2Package is a helper library for converting Pandas dataframes to `DDF packa
 
 .. code-block:: python
 
-	f2p = Frame2Package(data=df, concepts=concepts)
-	f2p.to_package('my-ddf-folder')
+    f2p = Frame2Package()
+    f2p.add_data(data=df, concepts=concepts)
+    f2p.to_package('my-ddf-folder')
 
 
 .. toctree::

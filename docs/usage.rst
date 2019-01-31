@@ -45,7 +45,8 @@ Some of your variables may have "total" entries. For instance, a `sex` column ma
 
 .. code-block:: python
 
-	f2p = Frame2Package(df, concepts, totals={'sex': 'both'})
+	f2p = Frame2Package()
+	f2p.add_data(df, concepts, totals={'sex': 'both'})
 
 Entities
 --------
