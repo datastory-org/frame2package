@@ -39,7 +39,7 @@ class Frame2Package():
             concept['concept'] = concept['concept'].lower()
 
         data.columns = [x.lower() for x in data.columns]
-        
+
         self.data.append({
             'data': data,
             'concepts': concepts,
@@ -49,22 +49,22 @@ class Frame2Package():
         self.entities = self._build_entities()
 
     def _get_indicators(self, concepts):
-        filt = lambda x: x['concept_type'] == 'measure'
+        def filt(x): return x['concept_type'] == 'measure'
         return filter(filt, concepts)
-    
+
     def _get_dimensions(self, concepts, excludes=[]):
-        filt = lambda x: x['concept_type'] not in ['measure', 'string'] \
-                         and x['concept'] not in excludes
+        def filt(x): return x['concept_type'] not in ['measure', 'string'] \
+                     and x['concept'] not in excludes
         return filter(filt, concepts)
-    
+
     def _get_entities(self, concepts):
-        filt = lambda x: x['concept_type'] == 'entity_domain'
-        return filter(filt, concepts)
-    
+        return filter(lambda x: x['concept_type'] == 'entity_domain',
+                      concepts)
+
     def _build_dimensions_string(self, concepts, excludes=[]):
         s = [x['concept'] for x in self._get_dimensions(concepts, excludes)]
         return '--'.join(s)
-    
+
     def _build_datasets(self):
         """For each indicator, build a dataset."""
         files = []
@@ -76,24 +76,27 @@ class Frame2Package():
             dimensions_string = self._build_dimensions_string(concepts)
 
             for i in indicators:
-                fname = f'ddf--datapoints--{i["concept"]}--by--{dimensions_string}.csv'
+                fname = f'ddf--datapoints--{i["concept"]}'
+                fname = f'{fname}--by--{dimensions_string}.csv'
                 cols = [x['concept'] for x in dimensions] + [i['concept']]
                 file = dataset['data'][cols]
                 files.append({'data': file, 'fname': fname})
 
-            if not 'totals' in dataset:
+            if 'totals' not in dataset:
                 continue
             for k, v in dataset['totals'].items():
                 dimensions = list(self._get_dimensions(concepts, excludes=[k]))
-                dimensions_string = self._build_dimensions_string(concepts, excludes=[k])
+                dimensions_string = self._build_dimensions_string(concepts,
+                                                                  excludes=[k])
                 for i in indicators:
-                    fname = f'ddf--datapoints--{i["concept"]}--by--{dimensions_string}.csv'
+                    fname = f'ddf--datapoints--{i["concept"]}'
+                    fname = f'{fname}--by--{dimensions_string}.csv'
                     cols = [x['concept'] for x in dimensions] + [i['concept']]
                     file = dataset['data'][cols]
                     files.append({'data': file, 'fname': fname})
-        
+
         return files
-    
+
     def _build_entities(self):
         entities_dict = {}
         for dataset in self.data:
@@ -102,7 +105,9 @@ class Frame2Package():
                 data = dataset['data'][[ent['concept']]].drop_duplicates()
                 if ent['concept'] in self.entities:
                     entities_dict[ent['concept']] = \
-                        self.entities[ent['concept']].append(data).drop_duplicates()
+                        (self.entities[ent['concept']]
+                            .append(data)
+                            .drop_duplicates())
                 else:
                     entities_dict[ent['concept']] = data
 
@@ -125,7 +130,7 @@ class Frame2Package():
                     'concept': col,
                     'concept_type': 'string'
                 })
-    
+
     def to_package(self, dirname):
         """Save data to a DDF package.
 
@@ -137,24 +142,24 @@ class Frame2Package():
 
         cwd = os.getcwd()
         dirpath = os.path.join(cwd, dirname)
-        
+
         if os.path.exists(dirpath):
             shutil.rmtree(dirpath)
-        
+
         os.mkdir(dirpath)
-        
+
         # Create data files
         datasets = self._build_datasets()
         for dataset in datasets:
             path = os.path.join(dirpath, dataset['fname'])
             dataset['data'].to_csv(path, index=False)
-            
+
         # Create entity files
         for name, data in self.entities.items():
             path = f'ddf--entities--{name}.csv'
             path = os.path.join(dirpath, path)
             data.to_csv(path, index=False)
-            
+
         # Create concepts file
         path = os.path.join(dirpath, 'ddf--concepts.csv')
         concepts = []
