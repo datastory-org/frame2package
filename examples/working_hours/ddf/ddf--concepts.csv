@@ -5,3 +5,4 @@ no_hours,entity_domain
 people,measure
 error_margin,measure
 percent,measure
+description,string

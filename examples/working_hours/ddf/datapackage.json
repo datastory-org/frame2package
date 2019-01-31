@@ -3,7 +3,7 @@
     "language": {
         "id": "en"
     },
-    "created": "2019-01-23T17:30:08.675652+00:00",
+    "created": "2019-01-31T12:52:52.669703+00:00",
     "resources": [
         {
             "path": "ddf--concepts.csv",
@@ -189,6 +189,9 @@
                 "fields": [
                     {
                         "name": "sex"
+                    },
+                    {
+                        "name": "description"
                     }
                 ],
                 "primaryKey": "sex"
@@ -230,7 +233,7 @@
                 "primaryKey": [
                     "sex"
                 ],
-                "value": null,
+                "value": "description",
                 "resources": [
                     "ddf--entities--sex"
                 ]

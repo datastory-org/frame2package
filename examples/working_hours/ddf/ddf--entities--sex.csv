@@ -1,4 +1,4 @@
-sex
-män
-kvinnor
-män och kvinnor
+sex,description
+män,Male
+kvinnor,Female
+män och kvinnor,Both
