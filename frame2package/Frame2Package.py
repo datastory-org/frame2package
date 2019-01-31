@@ -124,12 +124,6 @@ class Frame2Package():
             All data about the given entity.
         """
         self.entities[name] = data
-        for col in data.columns:
-            if col != name:
-                self.concepts.append({
-                    'concept': col,
-                    'concept_type': 'string'
-                })
 
     def to_package(self, dirname):
         """Save data to a DDF package.
@@ -166,7 +160,18 @@ class Frame2Package():
         for data in self.data:
             concepts = concepts + data['concepts']
         concepts = pd.DataFrame(concepts)
+
+        # Add updated entity information
         add_concepts = []
+        for k, v in self.entities.items():
+            for c in v.columns:
+                if c != k:
+                    add_concepts.append({
+                        'concept': c,
+                        'concept_type': 'string'
+                    })
+
+        # Add extra data on concepts
         for c in concepts.columns:
             if c not in ['concept', 'concept_type']:
                 add_concepts.append({
