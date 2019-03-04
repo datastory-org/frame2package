@@ -1,30 +1,31 @@
 import os
 import shutil
 import pandas as pd
+import numpy as np
 from ddf_utils import datapackage
 
 
 class Frame2Package():
-    """ Base class of frame2package.
-
-    Parameters
-    ----------
-    data : pandas.DataFrame
-        The data to packaged.
-    concepts : list
-        List of dictionaries each with keys concept and
-        concept_type for every concept in the dataset.
-    totals : dict
-        Mapping from variable name to name of value that
-        refers to a total, e.g. "all genders" in a gender
-        column.
-    """
+    """ Base class of frame2package."""
 
     def __init__(self):
         self.data = []
         self.entities = {}
 
     def add_data(self, data, concepts, totals={}):
+        """
+        Parameters
+        ----------
+        data : pandas.DataFrame
+            The data to packaged.
+        concepts : list
+            List of dictionaries each with keys concept and
+            concept_type for every concept in the dataset.
+        totals : dict
+            Mapping from variable name to name of value that
+            refers to a total, e.g. "all genders" in a gender
+            column.
+        """
         if type(data) is not pd.DataFrame:
             msg = (f'Expected data to be of type pandas.DataFrame'
                    f', not {type(data)}')
@@ -48,7 +49,7 @@ class Frame2Package():
 
         self.entities = self._build_entities()
 
-    def _get_indicators(self, concepts):
+    def _get_measures(self, concepts):
         def filt(x): return x['concept_type'] == 'measure'
         return filter(filt, concepts)
 
@@ -65,34 +66,38 @@ class Frame2Package():
         s = [x['concept'] for x in self._get_dimensions(concepts, excludes)]
         return '--'.join(s)
 
+    def _lowercase(self, df):
+        for col in df.columns:
+            if df[col].dtype == 'object':
+                df[col] = df[col].str.lower()
+        return df
+
     def _build_datasets(self):
-        """For each indicator, build a dataset."""
+        """For each measure, build a dataset."""
         files = []
 
         for dataset in self.data:
-            concepts = dataset['concepts']
-            indicators = list(self._get_indicators(concepts))
-            dimensions = list(self._get_dimensions(concepts))
-            dimensions_string = self._build_dimensions_string(concepts)
-
-            for i in indicators:
-                fname = f'ddf--datapoints--{i["concept"]}'
-                fname = f'{fname}--by--{dimensions_string}.csv'
-                cols = [x['concept'] for x in dimensions] + [i['concept']]
-                file = dataset['data'][cols]
-                files.append({'data': file, 'fname': fname})
-
-            if 'totals' not in dataset:
+            if len(dataset['data']) == 0:
                 continue
-            for k, v in dataset['totals'].items():
-                dimensions = list(self._get_dimensions(concepts, excludes=[k]))
-                dimensions_string = self._build_dimensions_string(concepts,
-                                                                  excludes=[k])
-                for i in indicators:
-                    fname = f'ddf--datapoints--{i["concept"]}'
-                    fname = f'{fname}--by--{dimensions_string}.csv'
-                    cols = [x['concept'] for x in dimensions] + [i['concept']]
-                    file = dataset['data'][cols]
+
+            concepts = dataset['concepts']
+            measures = list(self._get_measures(concepts))
+            dimensions = list(self._get_dimensions(concepts))
+            for m in measures:
+                fname = f'ddf--datapoints--{m["concept"]}'
+                cols = [x['concept'] for x in dimensions] + [m['concept']]
+                file = dataset['data'][cols]
+                file = file.replace('', np.nan)
+                file = file.dropna(subset=[m['concept']])
+                file = file.dropna(how='all', axis=1)
+                file = self._lowercase(file)
+                try:
+                    pk = "--".join(file.columns.drop(m["concept"]))
+                    fname = f'{fname}--by--{pk}.csv'
+                except KeyError:
+                    print('Empty data', m['concept'])
+                    continue
+                if len(file) > 0:
                     files.append({'data': file, 'fname': fname})
 
         return files
@@ -100,20 +105,24 @@ class Frame2Package():
     def _build_entities(self):
         entities_dict = {}
         for dataset in self.data:
+            if len(dataset['data']) == 0:
+                continue
             entities = self._get_entities(dataset['concepts'])
             for ent in entities:
-                data = dataset['data'][[ent['concept']]].drop_duplicates()
+                data = dataset['data'][[ent['concept']]]
+                data = data.drop_duplicates().dropna()
+                data = self._lowercase(data)
                 if ent['concept'] in self.entities:
                     entities_dict[ent['concept']] = \
                         (self.entities[ent['concept']]
-                            .append(data)
+                            .append(data, sort=True)
                             .drop_duplicates())
                 else:
                     entities_dict[ent['concept']] = data
 
         return entities_dict
 
-    def update_entity(self, name, data):
+    def update_entity(self, name, data, id=None):
         """ Add extra information about an entity.
 
         Parameters
@@ -123,10 +132,19 @@ class Frame2Package():
         data : pandas.DataFrame
             All data about the given entity.
         """
-        self.entities[name] = data
+        data[id] = data[id].str.lower()
+        if name in self.entities and id is not None:
+            self.entities[name] = self.entities[name].merge(data,
+                                                            on=id,
+                                                            how='outer')
+        else:
+            self.entities[name] = data
+
+    def add_concepts(self, concepts):
+        self.data.append({'data': [], 'concepts': concepts})
 
     def to_package(self, dirname):
-        """Save data to a DDF package.
+        """ Save data to a DDF package.
 
         Parameters
         ----------
@@ -178,14 +196,10 @@ class Frame2Package():
                     'concept': c,
                     'concept_type': 'string'
                 })
-        concepts = concepts.append(pd.DataFrame(add_concepts))
+        concepts = concepts.append(pd.DataFrame(add_concepts), sort=True)
         concepts = concepts.drop_duplicates(subset=['concept'])
         concepts.to_csv(path, index=False)
 
         # Create datapackage.json
         meta = datapackage.create_datapackage(dirpath)
         datapackage.dump_json(os.path.join(dirpath, 'datapackage.json'), meta)
-
-    # def __repr__(self):
-    #     return (f'<Frame2Package: {self.data.shape[0]} rows, '
-    #             f'{len(self.concepts)} concepts>')
