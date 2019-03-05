@@ -144,13 +144,15 @@ class Frame2Package():
     def add_concepts(self, concepts):
         self.data.append({'data': [], 'concepts': concepts})
 
-    def to_package(self, dirname):
+    def to_package(self, dirname, attrs={}):
         """ Save data to a DDF package.
 
         Parameters
         ----------
         dirname : str
             Name of the DDF directory to be created.
+        attrs : dict
+            Attributes to add/update in datapackage.json.
         """
 
         cwd = os.getcwd()
@@ -203,4 +205,8 @@ class Frame2Package():
 
         # Create datapackage.json
         meta = package.create_datapackage(dirpath)
+        for k, v in attrs.items():
+            meta[k] = v
+            meta.move_to_end(k, last=False)
+
         dump_json(os.path.join(dirpath, 'datapackage.json'), meta)
