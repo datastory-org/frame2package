@@ -14,7 +14,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     install_requires=[
-		'pandas>=0.23',
-        'ddf_utils>=0.5'
+        'pandas>=0.23',
+        'ddf_utils==0.6.2'
      ],
 )

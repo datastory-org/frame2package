@@ -2,7 +2,8 @@ import os
 import shutil
 import pandas as pd
 import numpy as np
-from ddf_utils import datapackage
+from ddf_utils import package
+from ddf_utils.io import dump_json
 
 
 class Frame2Package():
@@ -201,5 +202,5 @@ class Frame2Package():
         concepts.to_csv(path, index=False)
 
         # Create datapackage.json
-        meta = datapackage.create_datapackage(dirpath)
-        datapackage.dump_json(os.path.join(dirpath, 'datapackage.json'), meta)
+        meta = package.create_datapackage(dirpath)
+        dump_json(os.path.join(dirpath, 'datapackage.json'), meta)
