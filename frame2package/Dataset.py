@@ -12,10 +12,6 @@ class Dataset():
     concepts : list
         List of dictionaries each with keys concept and
         concept_type for every concept in the dataset.
-    totals : dict
-        Mapping from variable name to name of value that
-        refers to a total, e.g. "all genders" in a gender
-        column.
     """
     entities_metadata = {}
 
@@ -84,7 +80,7 @@ class Dataset():
             table = table.dropna(subset=[m.name])
             table = table.dropna(how='all', axis=1)
             table = table.applymap(lambda x: x.lower() if type(x) is str else x)
-            pk = "--".join(table.columns.drop(m.name))
+            pk = "--".join(sorted(table.columns.drop(m.name)))
             fname = f'{fname}--by--{pk}.csv'
 
             if len(table) > 0:
