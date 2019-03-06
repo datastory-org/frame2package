@@ -84,3 +84,14 @@ class DatasetTestCase(unittest.TestCase):
             return Dataset(data, self.concepts[:-1])
 
         self.assertRaises(ValueError, create_dataset_with_missing_concepts)
+
+    def test_creates_correct_table_name(self):
+        table_name = self.dataset.tables[0][0]
+        expected = 'ddf--datapoints--population--by--country--year.csv'
+        self.assertEqual(table_name, expected)
+
+    def test_creates_correct_table_size(self):
+        self.assertEqual(self.dataset.tables[0][1].shape, (4, 3))
+
+    def test_records_extra_string_concepts(self):
+        self.assertIn('capital', self.dataset.concepts)
