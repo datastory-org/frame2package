@@ -74,11 +74,7 @@ class Frame2Package():
         concepts.to_csv(path, index=False)
 
         # Create datapackage.json
-        meta = package.create_datapackage(dirpath)
-        for k, v in attrs.items():
-            meta[k] = v
-            meta.move_to_end(k, last=False)
-
+        meta = package.create_datapackage(dirpath, **attrs)
         dump_json(os.path.join(dirpath, 'datapackage.json'), meta)
 
     def __repr__(self):
