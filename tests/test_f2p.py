@@ -6,7 +6,7 @@ import pandas as pd
 from frame2package import Frame2Package
 
 
-class Frame2PackageTestCase(unittest.TestCase):
+class Frame2PackageIoTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         data = [
@@ -81,3 +81,58 @@ class Frame2PackageTestCase(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         shutil.rmtree(self.path)
+
+
+class Frame2PackageDataTestCase(unittest.TestCase):
+    @classmethod
+    def setUpClass(self):
+        data = [
+            {
+                'country': 'Sweden',
+                'region': 'Nordic',
+                'population': 9_000_000
+            },
+            {
+                'country': 'Sweden',
+                'region': 'Nordic',
+                'population': 10_000_000
+            },
+            {
+                'country': 'Denmark',
+                'region': 'Nordic',
+                'population': 5_000_000
+            },
+            {
+                'country': None,
+                'region': 'Nordic',
+                'population': 50_000_000
+            },
+        ]
+
+        concepts = [
+            {
+                'concept': 'country',
+                'concept_type': 'entity_domain'
+            },
+            {
+                'concept': 'region',
+                'concept_type': 'entity_domain'
+            },
+            {
+                'concept': 'population',
+                'concept_type': 'measure'
+            }
+        ]
+
+        f2p = Frame2Package()
+        f2p.add_data(pd.DataFrame(data), concepts)
+        self.f2p = f2p
+
+    def test_disaggregation_levels(self):
+        fnames = [x[0] for x in self.f2p.data[0].tables]
+
+        country_region = 'ddf--datapoints--population--by--country--region.csv'
+        self.assertIn(country_region, fnames)
+
+        region = 'ddf--datapoints--population--by--region.csv'
+        self.assertIn(region, fnames)

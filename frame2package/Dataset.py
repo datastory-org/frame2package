@@ -4,7 +4,8 @@ from .Concept import Concept
 
 
 class Dataset():
-    """
+    """Wrapper for input datasets, resulting in one or more DDF tables.
+
     Parameters
     ----------
     data : pandas.DataFrame
@@ -40,7 +41,8 @@ class Dataset():
         for ent in entities:
             name = ent.name
             values = self.data[[name]]
-            values = values.drop_duplicates().dropna()
+            values = values.drop_duplicates()
+            values = values.dropna(subset=[name])
             values = values.applymap(str.lower)
 
             if name in self.entities_metadata:
@@ -80,6 +82,20 @@ class Dataset():
             table = table.dropna(subset=[m.name])
             table = table.dropna(how='all', axis=1)
             table = table.applymap(lambda x: x.lower() if type(x) is str else x)
+
+            # Missing primary keys interpreted as summaries
+            # so we add extra tables
+            if table.isnull().any().any():
+                null_cols = list(table.columns[table.isnull().any()])
+                for nc in null_cols:
+                    nct = table[table[nc].isnull()]
+                    nct = nct.drop(nc, axis=1)
+                    pk = "--".join(sorted(nct.columns.drop(m.name)))
+                    fnamenc = f'{fname}--by--{pk}.csv'
+                    tables.append((fnamenc, nct))
+
+                table = table.dropna(subset=null_cols)
+
             pk = "--".join(sorted(table.columns.drop(m.name)))
             fname = f'{fname}--by--{pk}.csv'
 
