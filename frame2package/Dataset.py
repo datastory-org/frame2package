@@ -57,6 +57,7 @@ class Dataset():
         if name not in self.entities:
             raise ValueError(f'Entity {name} does not exist')
 
+        data[name] = data[name].str.lower()
         self.entities_metadata[name] = data
         for col in data.columns:
             if col in self.concepts:
@@ -72,7 +73,7 @@ class Dataset():
     def tables(self):
         tables = []
         measures = self._filter_concepts(['measure'])
-        pks = self._filter_concepts(['time', 'entity_domain'])
+        pks = list(self._filter_concepts(['time', 'entity_domain']))
 
         for m in measures:
             fname = f'ddf--datapoints--{m.name}'
