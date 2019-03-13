@@ -66,13 +66,17 @@ class Dataset():
             self.concepts.append(Concept(concept))
 
     def _filter_concepts(self, types):
-        filt_func = lambda x: x.type in types
+        def filt_func(x):
+            if 'measure' in types:
+                return x.type in types or x.is_indicator
+            else:
+                return x.type in types and not x.is_indicator
         return filter(filt_func, self.concepts)
 
     @property
     def tables(self):
         tables = []
-        measures = self._filter_concepts(['measure'])
+        measures = self._filter_concepts(['measure', 'boolean'])
         pks = list(self._filter_concepts(['time', 'entity_domain']))
 
         for m in measures:

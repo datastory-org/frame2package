@@ -22,6 +22,10 @@ class Concept():
     def is_entity(self):
         return self.data['concept_type'] == 'entity_domain'
 
+    @property
+    def is_indicator(self):
+        return 'is_indicator' in self.data and self.data['is_indicator']
+
     def __eq__(self, value):
         return self.name == value
 
