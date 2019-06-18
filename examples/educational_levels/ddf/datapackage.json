@@ -3,11 +3,11 @@
     "language": {
         "id": "en"
     },
-    "created": "2019-01-31T12:41:13.207064+00:00",
+    "created": "2019-03-12T19:26:34.211020+00:00",
     "resources": [
         {
-            "path": "ddf--concepts.csv",
             "name": "ddf--concepts",
+            "path": "ddf--concepts.csv",
             "schema": {
                 "fields": [
                     {
@@ -21,18 +21,18 @@
             }
         },
         {
-            "path": "ddf--datapoints--people--by--region--age--edu_level--sex--year.csv",
-            "name": "ddf--datapoints--people--by--region--age--edu_level--sex--year",
+            "name": "ddf--datapoints--people--by--age--edu_level--region--sex--year",
+            "path": "ddf--datapoints--people--by--age--edu_level--region--sex--year.csv",
             "schema": {
                 "fields": [
-                    {
-                        "name": "region"
-                    },
                     {
                         "name": "age"
                     },
                     {
                         "name": "edu_level"
+                    },
+                    {
+                        "name": "region"
                     },
                     {
                         "name": "sex"
@@ -45,17 +45,17 @@
                     }
                 ],
                 "primaryKey": [
-                    "region",
                     "age",
                     "edu_level",
+                    "region",
                     "sex",
                     "year"
                 ]
             }
         },
         {
-            "path": "ddf--entities--age.csv",
             "name": "ddf--entities--age",
+            "path": "ddf--entities--age.csv",
             "schema": {
                 "fields": [
                     {
@@ -66,8 +66,8 @@
             }
         },
         {
-            "path": "ddf--entities--edu_level.csv",
             "name": "ddf--entities--edu_level",
+            "path": "ddf--entities--edu_level.csv",
             "schema": {
                 "fields": [
                     {
@@ -78,8 +78,8 @@
             }
         },
         {
-            "path": "ddf--entities--region.csv",
             "name": "ddf--entities--region",
+            "path": "ddf--entities--region.csv",
             "schema": {
                 "fields": [
                     {
@@ -90,8 +90,8 @@
             }
         },
         {
-            "path": "ddf--entities--sex.csv",
             "name": "ddf--entities--sex",
+            "path": "ddf--entities--sex.csv",
             "schema": {
                 "fields": [
                     {
@@ -163,7 +163,7 @@
                 ],
                 "value": "people",
                 "resources": [
-                    "ddf--datapoints--people--by--region--age--edu_level--sex--year"
+                    "ddf--datapoints--people--by--age--edu_level--region--sex--year"
                 ]
             }
         ],

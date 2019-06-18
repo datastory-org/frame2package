@@ -3,11 +3,11 @@
     "language": {
         "id": "en"
     },
-    "created": "2019-01-31T13:17:56.063923+00:00",
+    "created": "2019-03-05T11:48:19.232317+00:00",
     "resources": [
         {
-            "path": "ddf--concepts.csv",
             "name": "ddf--concepts",
+            "path": "ddf--concepts.csv",
             "schema": {
                 "fields": [
                     {
@@ -21,8 +21,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_a--by--program--provnamn--skol_kod.csv",
             "name": "ddf--datapoints--andel_a--by--program--provnamn--skol_kod",
+            "path": "ddf--datapoints--andel_a--by--program--provnamn--skol_kod.csv",
             "schema": {
                 "fields": [
                     {
@@ -46,8 +46,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_b--by--program--provnamn--skol_kod.csv",
             "name": "ddf--datapoints--andel_b--by--program--provnamn--skol_kod",
+            "path": "ddf--datapoints--andel_b--by--program--provnamn--skol_kod.csv",
             "schema": {
                 "fields": [
                     {
@@ -71,8 +71,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_c--by--program--provnamn--skol_kod.csv",
             "name": "ddf--datapoints--andel_c--by--program--provnamn--skol_kod",
+            "path": "ddf--datapoints--andel_c--by--program--provnamn--skol_kod.csv",
             "schema": {
                 "fields": [
                     {
@@ -96,8 +96,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_d--by--program--provnamn--skol_kod.csv",
             "name": "ddf--datapoints--andel_d--by--program--provnamn--skol_kod",
+            "path": "ddf--datapoints--andel_d--by--program--provnamn--skol_kod.csv",
             "schema": {
                 "fields": [
                     {
@@ -121,8 +121,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_e--by--program--provnamn--skol_kod.csv",
             "name": "ddf--datapoints--andel_e--by--program--provnamn--skol_kod",
+            "path": "ddf--datapoints--andel_e--by--program--provnamn--skol_kod.csv",
             "schema": {
                 "fields": [
                     {
@@ -146,8 +146,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_f--by--program--provnamn--skol_kod.csv",
             "name": "ddf--datapoints--andel_f--by--program--provnamn--skol_kod",
+            "path": "ddf--datapoints--andel_f--by--program--provnamn--skol_kod.csv",
             "schema": {
                 "fields": [
                     {
@@ -171,8 +171,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_med_examen--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_med_examen--by--program--skolkod",
+            "path": "ddf--datapoints--andel_med_examen--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -192,25 +192,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_med_examen--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_med_examen--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_med_examen"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_med_gr_behorighet--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_med_gr_behorighet--by--program--skolkod",
+            "path": "ddf--datapoints--andel_med_gr_behorighet--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -230,25 +213,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_med_gr_behorighet--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_med_gr_behorighet--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_med_gr_behorighet"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_med_studiebevis--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_med_studiebevis--by--program--skolkod",
+            "path": "ddf--datapoints--andel_med_studiebevis--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -268,25 +234,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_med_studiebevis--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_med_studiebevis--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_med_studiebevis"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_med_utokat_prog--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_med_utokat_prog--by--program--skolkod",
+            "path": "ddf--datapoints--andel_med_utokat_prog--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -306,25 +255,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_med_utokat_prog--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_med_utokat_prog--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_med_utokat_prog"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_minst_e_eng5--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_minst_e_eng5--by--program--skolkod",
+            "path": "ddf--datapoints--andel_minst_e_eng5--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -344,25 +276,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_minst_e_eng5--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_minst_e_eng5--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_minst_e_eng5"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_minst_e_gyarb--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_minst_e_gyarb--by--program--skolkod",
+            "path": "ddf--datapoints--andel_minst_e_gyarb--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -382,25 +297,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_minst_e_gyarb--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_minst_e_gyarb--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_minst_e_gyarb"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_minst_e_hist1--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_minst_e_hist1--by--program--skolkod",
+            "path": "ddf--datapoints--andel_minst_e_hist1--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -420,25 +318,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_minst_e_hist1--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_minst_e_hist1--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_minst_e_hist1"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_minst_e_idr1--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_minst_e_idr1--by--program--skolkod",
+            "path": "ddf--datapoints--andel_minst_e_idr1--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -458,25 +339,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_minst_e_idr1--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_minst_e_idr1--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_minst_e_idr1"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_minst_e_ma1--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_minst_e_ma1--by--program--skolkod",
+            "path": "ddf--datapoints--andel_minst_e_ma1--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -496,25 +360,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_minst_e_ma1--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_minst_e_ma1--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_minst_e_ma1"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_minst_e_na1--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_minst_e_na1--by--program--skolkod",
+            "path": "ddf--datapoints--andel_minst_e_na1--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -534,25 +381,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_minst_e_na1--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_minst_e_na1--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_minst_e_na1"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_minst_e_re1--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_minst_e_re1--by--program--skolkod",
+            "path": "ddf--datapoints--andel_minst_e_re1--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -572,25 +402,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_minst_e_re1--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_minst_e_re1--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_minst_e_re1"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_minst_e_sam1--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_minst_e_sam1--by--program--skolkod",
+            "path": "ddf--datapoints--andel_minst_e_sam1--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -610,25 +423,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_minst_e_sam1--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_minst_e_sam1--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_minst_e_sam1"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_minst_e_sv1--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_minst_e_sv1--by--program--skolkod",
+            "path": "ddf--datapoints--andel_minst_e_sv1--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -648,25 +444,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_minst_e_sv1--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_minst_e_sv1--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_minst_e_sv1"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--andel_minst_e_sva1--by--program--skolkod.csv",
             "name": "ddf--datapoints--andel_minst_e_sva1--by--program--skolkod",
+            "path": "ddf--datapoints--andel_minst_e_sva1--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -686,25 +465,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--andel_minst_e_sva1--by--skolkod.csv",
-            "name": "ddf--datapoints--andel_minst_e_sva1--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "andel_minst_e_sva1"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--antal_elever--by--program--skolkod.csv",
             "name": "ddf--datapoints--antal_elever--by--program--skolkod",
+            "path": "ddf--datapoints--antal_elever--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -724,25 +486,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--antal_elever--by--skolkod.csv",
-            "name": "ddf--datapoints--antal_elever--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "antal_elever"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--gbp--by--program--skolkod.csv",
             "name": "ddf--datapoints--gbp--by--program--skolkod",
+            "path": "ddf--datapoints--gbp--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -762,25 +507,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--gbp--by--skolkod.csv",
-            "name": "ddf--datapoints--gbp--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "gbp"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--gbp_examen--by--program--skolkod.csv",
             "name": "ddf--datapoints--gbp_examen--by--program--skolkod",
+            "path": "ddf--datapoints--gbp_examen--by--program--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -800,25 +528,8 @@
             }
         },
         {
-            "path": "ddf--datapoints--gbp_examen--by--skolkod.csv",
-            "name": "ddf--datapoints--gbp_examen--by--skolkod",
-            "schema": {
-                "fields": [
-                    {
-                        "name": "skolkod"
-                    },
-                    {
-                        "name": "gbp_examen"
-                    }
-                ],
-                "primaryKey": [
-                    "skolkod"
-                ]
-            }
-        },
-        {
-            "path": "ddf--datapoints--gnm_betp--by--program--provnamn--skol_kod.csv",
             "name": "ddf--datapoints--gnm_betp--by--program--provnamn--skol_kod",
+            "path": "ddf--datapoints--gnm_betp--by--program--provnamn--skol_kod.csv",
             "schema": {
                 "fields": [
                     {
@@ -842,8 +553,8 @@
             }
         },
         {
-            "path": "ddf--entities--program.csv",
             "name": "ddf--entities--program",
+            "path": "ddf--entities--program.csv",
             "schema": {
                 "fields": [
                     {
@@ -854,8 +565,8 @@
             }
         },
         {
-            "path": "ddf--entities--provnamn.csv",
             "name": "ddf--entities--provnamn",
+            "path": "ddf--entities--provnamn.csv",
             "schema": {
                 "fields": [
                     {
@@ -866,8 +577,8 @@
             }
         },
         {
-            "path": "ddf--entities--skol_kod.csv",
             "name": "ddf--entities--skol_kod",
+            "path": "ddf--entities--skol_kod.csv",
             "schema": {
                 "fields": [
                     {
@@ -878,8 +589,8 @@
             }
         },
         {
-            "path": "ddf--entities--skolkod.csv",
             "name": "ddf--entities--skolkod",
+            "path": "ddf--entities--skolkod.csv",
             "schema": {
                 "fields": [
                     {
@@ -937,159 +648,6 @@
                 "value": null,
                 "resources": [
                     "ddf--entities--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_med_examen",
-                "resources": [
-                    "ddf--datapoints--andel_med_examen--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_med_gr_behorighet",
-                "resources": [
-                    "ddf--datapoints--andel_med_gr_behorighet--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_med_studiebevis",
-                "resources": [
-                    "ddf--datapoints--andel_med_studiebevis--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_med_utokat_prog",
-                "resources": [
-                    "ddf--datapoints--andel_med_utokat_prog--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_minst_e_eng5",
-                "resources": [
-                    "ddf--datapoints--andel_minst_e_eng5--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_minst_e_gyarb",
-                "resources": [
-                    "ddf--datapoints--andel_minst_e_gyarb--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_minst_e_hist1",
-                "resources": [
-                    "ddf--datapoints--andel_minst_e_hist1--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_minst_e_idr1",
-                "resources": [
-                    "ddf--datapoints--andel_minst_e_idr1--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_minst_e_ma1",
-                "resources": [
-                    "ddf--datapoints--andel_minst_e_ma1--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_minst_e_na1",
-                "resources": [
-                    "ddf--datapoints--andel_minst_e_na1--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_minst_e_re1",
-                "resources": [
-                    "ddf--datapoints--andel_minst_e_re1--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_minst_e_sam1",
-                "resources": [
-                    "ddf--datapoints--andel_minst_e_sam1--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_minst_e_sv1",
-                "resources": [
-                    "ddf--datapoints--andel_minst_e_sv1--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "andel_minst_e_sva1",
-                "resources": [
-                    "ddf--datapoints--andel_minst_e_sva1--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "antal_elever",
-                "resources": [
-                    "ddf--datapoints--antal_elever--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "gbp",
-                "resources": [
-                    "ddf--datapoints--gbp--by--skolkod"
-                ]
-            },
-            {
-                "primaryKey": [
-                    "skolkod"
-                ],
-                "value": "gbp_examen",
-                "resources": [
-                    "ddf--datapoints--gbp_examen--by--skolkod"
                 ]
             }
         ],

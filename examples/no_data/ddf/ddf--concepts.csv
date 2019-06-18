@@ -1,0 +1,4 @@
+concept,concept_type
+country,entity_domain
+capital,entity_domain
+population,measure
