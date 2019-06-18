@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="frame2package",
-    version="0.0.4",
+    version="0.0.5",
     author="Robin Linderborg",
     author_email="robin@datastory.org",
     description="Pandas dataframes to DDF packages.",
@@ -13,8 +13,5 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
-    install_requires=[
-        'pandas>=0.23',
-        'ddf_utils==0.6.4'
-     ],
+    install_requires=['pandas', 'ddf_utils'],
 )
